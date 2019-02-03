@@ -3,12 +3,6 @@
 
 ### Installation
 
-create-react-app is required for this project.
-
-```sh
-$ sudo npm i -g create-react-app
-```
-
 Install the dependencies.
 
 ```sh
