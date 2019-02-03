@@ -20,4 +20,4 @@ And same time it needs to run json-server:
 $ npm run dev-serv
 ```
 ### NOTICE!
-#####This is mobile first application,so please view it with device toolbar of your browser.
+##### This is mobile first application,so please view it with device toolbar of your browser.
