@@ -10,7 +10,7 @@ const CardInfo = (props) => {
             return item.id === team;
         });
         
-        if(data) return data.name;
+        if(data) {return data.name};
     }
 
     return (

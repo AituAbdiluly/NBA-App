@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 
-import './footer.css';
+import styles from './footer.module.css';
 import {CURRENT_YEAR} from '../../config';
 
 const Footer = () => {
@@ -9,12 +9,12 @@ const Footer = () => {
     
     
     return (
-        <div className="footer">
-            <Link to="/" className="logo">
+        <div className={styles.footer}>
+            <Link to="/" className={styles.logo}>
                 <img src="/images/nba_logo.png" alt="nba logo"/>
             </Link>
 
-            <div className="right">
+            <div className={styles.right}>
                 @NBA {CURRENT_YEAR} All Rights Reserved
             </div>
         </div>
