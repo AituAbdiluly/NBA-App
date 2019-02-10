@@ -1,8 +1,7 @@
 # NBA-App
 ### NBA app with ReactJS.
 
-This app allows you to read NBA news and view videos. 
-
+This app allows you to read NBA news and view videos.
 
 ### Installation
 
