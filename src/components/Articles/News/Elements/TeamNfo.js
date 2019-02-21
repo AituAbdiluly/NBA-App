@@ -2,7 +2,6 @@ import React from 'react';
 import styles from '../../articles.module.css';
 
 const TeamNfo = (props) => {
-    console.log(props);
     
     return (
         <div className={styles.articleNewsWrapper}>
