@@ -16,8 +16,8 @@ const News = () => {
             <NewsList 
                 type="cardMian"
                 loadmore={true}
-                start={2}
-                amount={6}
+                start={0}
+                amount={2}
             />
         </div>
     );

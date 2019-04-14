@@ -1,0 +1,47 @@
+.postContainer {
+    width:80%;
+    margin:0 auto;
+    padding-top:50px;
+}
+
+.postContainer h2 {
+    font-weight: 300;
+    text-align: center;
+    font-size: 35px;
+}
+
+
+.postContainer input {
+    font-size: 17px;
+    width: 100%;
+    margin-top: 15px;
+    padding: 12px 10px;
+    box-sizing: border-box;
+    font-weight: 300;
+}
+
+
+.postContainer button {
+    background: #03a9f4;
+    font-size: 13px;
+    padding:10px;
+    color:#fff;
+    margin-top: 10px;
+    border: none;
+}
+
+.postContainer button:not(:last-child){
+    margin-right: 5px;
+}
+
+.postContainer .error {
+    color:#ff5722;
+    font-weight: 500;
+    margin-top: 5px;
+    padding:5px;
+}
+
+.postContainer select {
+    font-size: 20px;
+    margin-top: 10px;
+}

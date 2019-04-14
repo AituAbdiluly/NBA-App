@@ -168,12 +168,12 @@ class SignIn extends Component {
             <div className={styles.logContainer}>
                 <form onSubmit={(event) => this.submitForm(event, null)}>
                     <h2>Register / Log in</h2>
+
                     <FormField 
                         id={'email'}
                         formdata={this.state.formdata.email}
                         change={(element) => this.updateForm(element)}
                     />
-
                     <FormField 
                         id={'password'}
                         formdata={this.state.formdata.password}
