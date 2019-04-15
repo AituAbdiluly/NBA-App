@@ -1,6 +1,8 @@
 # NBA-App
 ### NBA app with ReactJS.
 
+<h3><a href="https://nba-app-ae40b.firebaseapp.com/">View it here!</a></h3>
+
 This app allows you to read and post NBA news and watch videos.
 
 ### Technologies: 
