@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { firebaseArticles, firebaseLooper } from '../../../firebase';
+import { firebaseArticles, firebaseLooper, firebase } from '../../../firebase';
 
 import SliderTemplates from './SliderTemplates';
 
@@ -15,9 +15,43 @@ class NewsSlider extends Component {
         .then(snapshot => {
             const news = firebaseLooper(snapshot);            
 
-            this.setState({
-                news
+            // news.forEach((item, i) => {
+            //     firebase.storage().ref('images')
+            //     .child(item.image).getDownloadURL()
+            //     .then(url => {
+            //         news[i].image = url;
+
+            //         this.setState({
+            //             news
+            //         })
+            //     })
+            // })
+
+
+            const asyncFunc = (item, i, callback) => {
+                firebase.storage().ref('images')
+                .child(item.image).getDownloadURL()
+                .then(url => {
+                    news[i].image = url;
+
+                    callback();
+                })
+            }
+
+            let requests = news.map((item, i) => (
+                new Promise(resolve => {
+                    asyncFunc(item, i, resolve);
+                })
+            ))
+
+            Promise.all(requests)
+            .then(() => {
+                
+                this.setState({
+                    news
+                })
             })
+
         })
 
 

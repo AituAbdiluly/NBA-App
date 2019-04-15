@@ -7,8 +7,8 @@ const News = () => {
         <div>
             <NewsSlider
                 type="featured"
-                start={3}
-                amount={6}
+                start={0}
+                amount={3}
                 settings={{
                     dots: false
                 }}

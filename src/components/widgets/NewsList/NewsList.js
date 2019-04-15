@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import { Link } from 'react-router-dom';
-import { firebaseArticles, firebaseTeams, firebaseLooper } from '../../../firebase';
+import { firebaseArticles, firebaseTeams, firebaseLooper, firebase } from '../../../firebase';
 
 import styles from './newsList.module.css';
 
@@ -47,15 +47,33 @@ class NewsList extends Component {
         .then(snapshot => {
             const articles = firebaseLooper(snapshot);
 
-            this.setState({
-                items: [...this.state.items, ...articles],
-                start,
-                end
+            const asyncFunc = (item, i, callback) => {
+                firebase.storage().ref('images')
+                .child(item.image).getDownloadURL()
+                .then(url => {
+                    articles[i].image = url;
+
+                    callback();
+                })
+            }
+
+            let requests = articles.map((item, i) => {
+                return new Promise(resolve => {
+                    asyncFunc(item, i, resolve);
+                })
+            })
+
+            Promise.all(requests)
+            .then(()=>{
+                this.setState({
+                    items: [...this.state.items, ...articles],
+                    start,
+                    end
+                })
             })
         })
         .catch(e => {
             console.log(e);
-            
         })
         // axios.get(`${URL}/articles?_start=${start}&_end=${end}`)
         // .then( response => {
@@ -65,6 +83,8 @@ class NewsList extends Component {
         //         end
         //     })
         // })
+
+        
     }
 
     loadMore = () => {
@@ -109,7 +129,7 @@ class NewsList extends Component {
                         <Link to={`/articles/${item.id}`}>
                             <div className={styles.flex_wrapper}>
                                 <div className={styles.left} style={{
-                                    background: `url(/images/articles/${item.image})`
+                                    backgroundImage: `url(${item.image})`
                                 }}>
                                     <div></div>
                                 </div>
@@ -122,6 +142,7 @@ class NewsList extends Component {
                         
                     </CSSTransition>
                 ));
+                
                 break;
             default:
                 template = null;
