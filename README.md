@@ -3,6 +3,10 @@
 
 This app allows you to read NBA news and view videos.
 
+### Technologies: 
+
+React, React Router, Firebase, JSON-server and etc.
+
 ### Installation
 
 Install the dependencies.
